@@ -1,6 +1,7 @@
 package personnel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
@@ -16,8 +17,10 @@ public class Employe implements Serializable, Comparable<Employe>
 	private String nom, prenom, password, mail;
 	private Ligue ligue;
 	private GestionPersonnel gestionPersonnel;
+	private LocalDate dateArrivee, dateDepart;
+	private LocalDate date_depart, date_arrivee;
 	
-	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password)
+	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, LocalDate date_depart, LocalDate date_arrivee)
 	{
 		this.gestionPersonnel = gestionPersonnel;
 		this.nom = nom;
@@ -25,6 +28,8 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.password = password;
 		this.mail = mail;
 		this.ligue = ligue;
+		this.date_arrivee = date_arrivee;
+		this.date_depart = date_depart;
 	}
 	
 	/**
@@ -55,6 +60,27 @@ public class Employe implements Serializable, Comparable<Employe>
 	 * Retourne le nom de l'employé.
 	 * @return le nom de l'employé. 
 	 */
+	
+	public LocalDate getDateArrivee()
+	{
+		return dateArrivee;
+	}
+	public void setDateArrivee(LocalDate dateArrivee)
+	{
+		this.dateArrivee = dateArrivee;
+	}
+	/**
+	 * Retourne la date de d�part de l'employ�.
+	 * @return le date de d�part de l'employ�. 
+	 */
+	public LocalDate getDateDepart()
+	{
+		return dateDepart;
+	}
+	public void setDateDepart(LocalDate dateDepart)
+	{
+		this.dateDepart = dateDepart;
+	}
 	
 	public String getNom()
 	{
@@ -148,6 +174,22 @@ public class Employe implements Serializable, Comparable<Employe>
 	 * Supprime l'employé. Si celui-ci est un administrateur, le root
 	 * récupère les droits d'administration sur sa ligue.
 	 */
+	
+	public LocalDate getDate_depart() {
+		return date_depart;
+	}
+
+	public void setDate_depart(LocalDate date_depart) {
+		this.date_depart = date_depart;
+	}
+
+	public LocalDate getDate_arrivee() {
+		return date_arrivee;
+	}
+
+	public void setDate_arrivee(LocalDate date_arrivee) {
+		this.date_arrivee = date_arrivee;
+	}
 	
 	public void remove()
 	{
